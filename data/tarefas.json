@@ -1,0 +1,19 @@
+{
+  "updatedAt": "2026-08-08",
+  "note": "Pendências da equipe, itens vetados para uso público e plano de produção da semana. Editar este arquivo e commitar; prazos em ISO AAAA-MM-DD.",
+  "pendencias": [
+    {"id": 1, "texto": "Validar números da fila da Saúde na fonte primária", "resp": "ANA", "prazo": "2026-08-12"},
+    {"id": 2, "texto": "Briefing de Lucas do Rio Verde: pautas locais + perguntas difíceis", "resp": "CAIO", "prazo": "2026-08-12"},
+    {"id": 3, "texto": "Roteiro: curso técnico que leva a emprego (dados de inserção)", "resp": "DUDA", "prazo": null}
+  ],
+  "naoUsar": [
+    {"id": 1, "status": "em_apuracao", "titulo": "Valores da apuração na Educação", "motivo": "R$ 70/80/159 mi são contextos diferentes — não somar nem citar como dano."},
+    {"id": 2, "status": "parcial", "titulo": "“Redução de 101 mil na fila”", "motivo": "Balanço oficial sem série detalhada; citar só como alegação da gestão."}
+  ],
+  "plano": [
+    {"date": "2026-08-08", "nota": "Triagem + produção"},
+    {"date": "2026-08-11", "nota": "Janela de produção — gravar conteúdo 03"},
+    {"date": "2026-08-12", "nota": "Revisão do briefing de Lucas do Rio Verde"},
+    {"date": "2026-08-14", "nota": "Pós-evento: registro e conteúdo"}
+  ]
+}

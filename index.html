@@ -3,118 +3,107 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Inteligência pública, auditoria factual e preparação para uma campanha responsável.">
-  <meta name="theme-color" content="#0D47A1">
-  <title>Observatório + Copiloto</title>
+  <meta name="description" content="AKAssistente — painel interno da equipe: agenda do deputado, observatório factual e preparação de campanha.">
+  <meta name="theme-color" content="#051F5E">
+  <title>AKAssistente</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Saira+Condensed:ital,wght@0,600;0,700;0,900;1,700;1,900&family=Saira:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="enhancements.css">
-  <link rel="stylesheet" href="latest.css">
   <link rel="stylesheet" href="agenda.css">
+  <link rel="stylesheet" href="shell.css">
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#hoje" aria-label="Observatório + Copiloto — início">
-      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-      <span>Observatório <b>+ Copiloto</b></span>
-    </a>
-    <div class="header-actions">
-      <span class="status"><i></i> Base pública piloto</span>
-      <button class="icon-button" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
-    </div>
-  </header>
-
-  <div class="shell">
-    <aside class="sidebar" id="sidebar">
-      <nav aria-label="Navegação principal">
-        <a class="nav-link active" href="#hoje"><span>⌂</span> Hoje</a>
-        <a class="nav-link" href="#agenda"><span>◷</span> Agenda</a>
-        <a class="nav-link" href="#observatorio"><span>◎</span> Observatório</a>
-        <a class="nav-link" href="#buscador"><span>⌕</span> Buscador de pautas</a>
-        <a class="nav-link" href="#copiloto"><span>✦</span> Copiloto</a>
-        <a class="nav-link" href="#auditor"><span>✓</span> Auditor</a>
-        <a class="nav-link" href="#trajetoria"><span>◇</span> Trajetória</a>
-        <a class="nav-link" href="#conteudo"><span>▦</span> Conteúdo</a>
+  <div class="app">
+    <aside class="side" id="sidebar">
+      <a class="side-brand" href="#semana" aria-label="AKAssistente — início">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>AK <b>Assistente</b></span>
+      </a>
+      <nav class="side-nav" aria-label="Navegação principal">
+        <a href="#semana">Semana</a>
+        <a href="#agenda">Agenda completa</a>
+        <a href="#observatorio">Observatório</a>
+        <a href="#buscador">Buscador</a>
+        <a href="#copiloto">Copiloto</a>
+        <a href="#auditor">Auditor</a>
+        <a href="#trajetoria">Trajetória</a>
+        <a href="#conteudo">Conteúdo</a>
       </nav>
-      <div class="scope-note">
-        <span>COMPROMISSO</span>
-        <p>Informação pública, análise agregada e evidência rastreável.</p>
-        <a href="#metodologia">Ver metodologia →</a>
-      </div>
+      <div class="side-foot"><span>USO INTERNO</span><p>Agenda restrita à equipe. Não compartilhar.</p></div>
     </aside>
+    <button class="menu-fab" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    <main class="views">
 
-    <main>
-      <section class="hero" id="hoje">
-        <div>
-          <p class="eyebrow">CENTRAL DE PREPARAÇÃO · CUIABÁ E MATO GROSSO</p>
-          <h1>Escutar melhor.<br><em>Responder com fatos.</em></h1>
-          <p class="hero-copy">Um painel para transformar fontes públicas, dúvidas e evidências em decisões de campanha — sem perfilamento individual ou microdirecionamento.</p>
-        </div>
-        <div class="date-card">
-          <span>COLETA PILOTO</span>
-          <strong>8 de agosto de 2026</strong>
-          <small>Fontes reais · revisão manual</small>
-        </div>
-      </section>
-
-      <section class="daily-strip" aria-label="Prioridades do dia">
-        <div><span>01</span><p><b>Pauta sensível</b>Transparência nas compras da Educação</p></div>
-        <div><span>02</span><p><b>Dado a confirmar</b>Composição da redução da fila de Saúde</p></div>
-        <div><span>03</span><p><b>Oportunidade</b>Educação profissional ligada a emprego</p></div>
-      </section>
-
-      <section class="latest-section" aria-label="Atualizações recentes">
-        <div class="latest-column">
-          <div class="latest-heading"><div><span>AGORA</span><h2>Últimas notícias</h2></div><a href="#buscador">Ver todas →</a></div>
-          <div class="latest-list" id="latestNews"></div>
-        </div>
-        <div class="latest-column social-column">
-          <div class="latest-heading"><div><span>REDES PÚBLICAS</span><h2>Últimas postagens</h2></div><span class="connection-badge">Integração pendente</span></div>
-          <div class="social-empty">
-            <span>◎</span>
-            <div><h3>Espaço pronto para as redes do Allan</h3><p>Na próxima fase, este bloco poderá exibir publicações públicas recentes, data, canal e tema. Nenhuma credencial ficará no GitHub Pages.</p></div>
+      <section class="view" id="semana">
+        <header class="view-head">
+          <div><h1 id="weekTitle">Semana</h1><span class="view-sub" id="weekSummary">—</span></div>
+          <div class="week-nav"><button id="weekPrev" type="button">← Anterior</button><button id="weekNext" type="button">Próxima →</button></div>
+        </header>
+        <div class="week-grid" id="weekGrid" aria-live="polite"></div>
+        <div class="desks">
+          <div class="panel-2c">
+            <div class="panel-2c-head"><h2>Pendências da equipe</h2><a href="#conteudo">+ Nova pendência</a></div>
+            <div class="gold-rule"></div>
+            <div class="rows" id="pendList"></div>
           </div>
-          <div class="channel-list"><span>Instagram</span><span>Facebook</span><span>YouTube</span></div>
-        </div>
-      </section>
-
-      <section class="agenda-section" id="agenda">
-        <div class="section-title"><div><span>AGENDA DO DEPUTADO</span><h2>Compromissos planejados</h2></div><p>Planejamento interno de viagens e reuniões de agosto a outubro. O status é calculado automaticamente pela data do acesso. Uso restrito à equipe.</p></div>
-        <div class="agenda-grid">
-          <article class="agenda-next" id="agendaNext"></article>
-          <div class="agenda-stats">
-            <article><span>COMPROMISSOS</span><strong id="agTotal">—</strong><small>no planejamento</small></article>
-            <article><span>PRÓXIMOS 7 DIAS</span><strong id="agWeek">—</strong><small>compromissos</small></article>
-            <article><span>DESTINOS</span><strong id="agPlaces">—</strong><small>municípios e regiões</small></article>
-            <article><span>REALIZADOS</span><strong id="agDone">—</strong><small>até hoje</small></article>
+          <div class="panel-2c">
+            <div class="panel-2c-head"><h2>Não usar em público</h2></div>
+            <div class="gold-rule"></div>
+            <div class="rows" id="vetoList"></div>
           </div>
         </div>
-        <div class="agenda-toolbar">
-          <label>Tipo<select id="agendaTypeFilter"><option value="all">Todos os tipos</option></select></label>
-          <label class="agenda-hide"><input type="checkbox" id="agendaHideDone"> Ocultar realizados</label>
+        <div class="week-foot">
+          <div class="next-card">
+            <div><span>PRÓXIMO COMPROMISSO</span><strong id="weekNextEv">—</strong><p id="weekNextInfo"></p></div>
+            <a class="cta" href="#copiloto">Abrir briefing →</a>
+          </div>
+          <div class="panel-2c">
+            <div class="fresh-head"><span>RECENTES NA BASE</span><b id="freshBadge">—</b></div>
+            <div class="rows" id="freshList"></div>
+          </div>
         </div>
-        <div class="agenda-list" id="agendaList" aria-live="polite"></div>
       </section>
 
-      <section id="observatorio" class="section-wrap">
-        <div class="section-title"><div><span>OBSERVATÓRIO</span><h2>O debate público em evidências</h2></div><p>Indicadores calculados somente sobre os registros públicos desta base piloto.</p></div>
+      <section class="view" id="agenda">
+        <header class="view-head">
+          <div><h1>Agenda completa</h1><span class="view-sub">17 compromissos · agosto a outubro · status pela data de hoje</span></div>
+          <div class="agenda-toolbar" style="padding:0;border:0">
+            <label>Tipo<select id="agendaTypeFilter"><option value="all">Todos os tipos</option></select></label>
+            <label class="agenda-hide"><input type="checkbox" id="agendaHideDone"> Ocultar realizados</label>
+          </div>
+        </header>
+        <div class="stats4">
+          <article class="stat blue"><span>COMPROMISSOS</span><strong id="agTotal">—</strong></article>
+          <article class="stat"><span>PRÓXIMOS 7 DIAS</span><strong id="agWeek">—</strong></article>
+          <article class="stat"><span>DESTINOS</span><strong id="agPlaces">—</strong></article>
+          <article class="stat"><span>REALIZADOS</span><strong id="agDone">—</strong></article>
+        </div>
+        <div class="agenda-wrap" id="agendaList" aria-live="polite"></div>
+      </section>
+
+      <section class="view" id="observatorio">
+        <header class="view-head">
+          <div><h1>Observatório</h1><span class="view-sub">indicadores calculados só sobre os registros públicos da base piloto</span></div>
+        </header>
         <section class="metrics" aria-label="Indicadores principais">
           <article class="metric-card featured"><span>REGISTROS COLETADOS</span><div><strong id="recordCount">—</strong><small>fontes públicas</small></div><p>Sem estimativa artificial de menções</p></article>
           <article class="metric-card"><span>TEMAS MAPEADOS</span><div><strong id="topicCount">—</strong><small>categorias</small></div><p id="topTopic">—</p></article>
-          <article class="metric-card evidence-card"><span>EVIDÊNCIA PRIMÁRIA</span><div class="sentiment-ring" id="evidenceRing"><strong id="evidencePct">—</strong></div><p>Origem oficial ou base pública</p></article>
+          <article class="metric-card"><span>EVIDÊNCIA PRIMÁRIA</span><div><strong id="evidencePct" style="color:var(--deep)">—</strong><small id="evidenceSub">—</small></div><p>Origem oficial ou base pública</p></article>
           <article class="metric-card"><span>EXIGEM CAUTELA</span><div><strong id="alertCount">—</strong><small>registros</small></div><p>Alegação, apuração ou dado parcial</p></article>
         </section>
-        <div class="dashboard-grid">
-          <section class="panel chart-panel"><div class="panel-heading"><div><span>EVOLUÇÃO</span><h2>Publicações por mês</h2></div><div class="legend"><i></i> Itens coletados</div></div><div class="chart" id="timelineChart" role="img" aria-label="Gráfico de itens coletados por mês"></div></section>
-          <section class="panel topics-panel"><div class="panel-heading"><div><span>AGENDA</span><h2>Distribuição temática</h2></div></div><div id="topicsChart" class="topics-chart"></div></section>
+        <div class="charts2">
+          <section class="panel chart-panel"><div class="panel-heading"><div><span>EVOLUÇÃO</span><h2>Publicações por mês</h2></div><div class="legend"><i></i> Itens coletados</div></div><div class="gold-rule"></div><div class="chart" id="timelineChart" role="img" aria-label="Gráfico de itens coletados por mês"></div></section>
+          <section class="panel topics-panel"><div class="panel-heading"><div><span>AGENDA</span><h2>Distribuição temática</h2></div></div><div class="gold-rule"></div><div id="topicsChart" class="topics-chart"></div></section>
         </div>
       </section>
 
-      <section class="search-section" id="buscador">
-        <div class="section-title"><div><span>BUSCADOR DE PAUTAS</span><h2>Encontre o contexto antes de falar</h2></div><p>Pesquise por assunto, cidade, fonte ou palavra-chave.</p></div>
-        <div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Ex.: educação técnica, fila da saúde, professores..." aria-label="Buscar pautas"></div>
+      <section class="view" id="buscador">
+        <header class="view-head">
+          <div><h1>Buscador de pautas</h1><span class="view-sub">contexto antes de falar: assunto, cidade, fonte ou palavra-chave</span></div>
+        </header>
+        <div class="busca-wrap"><div class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Ex.: educação técnica, fila da saúde, professores..." aria-label="Buscar pautas"></div></div>
         <section class="filter-bar" aria-label="Filtros">
           <label>Período<select id="periodFilter"><option value="all">Todo o acervo</option><option value="30">Últimos 30 dias da base</option><option value="60">Últimos 60 dias da base</option><option value="90">Últimos 90 dias da base</option></select></label>
           <label>Tema<select id="topicFilter"><option value="all">Todos os temas</option></select></label>
@@ -125,21 +114,46 @@
         <section class="panel monitor-panel"><div class="panel-heading"><div><span>RESULTADOS</span><h2>Itens públicos encontrados</h2></div><span class="result-count" id="resultCount">— itens</span></div><div class="items-list" id="itemsList" aria-live="polite"></div></section>
       </section>
 
-      <section class="copilot" id="copiloto">
-        <div class="copilot-intro"><span class="copilot-icon">✦</span><p class="eyebrow">COPILOTO DO CANDIDATO</p><h2>Chegue preparado.<br><em>Responda com fatos.</em></h2><p>O briefing usa apenas os registros visíveis no Buscador. Ele reúne perguntas difíceis, críticas, fatos, exemplos e alertas de evidência.</p><button class="primary-button" id="generateBriefing">Gerar briefing do recorte <span>→</span></button><small>Processamento local · sem API ou chave</small></div>
-        <div class="briefing-card" id="briefingCard"><div class="briefing-placeholder"><span>✦</span><h3>Seu briefing aparecerá aqui</h3><p>Faça uma busca ou escolha os filtros e gere uma preparação factual.</p></div></div>
+      <section class="view" id="copiloto">
+        <header class="view-head">
+          <div><h1>Copiloto</h1><span class="view-sub">preparação factual com base só nos registros do recorte · processamento local</span></div>
+        </header>
+        <div class="copi-grid">
+          <div class="copi-left">
+            <div class="recorte-card">
+              <span>RECORTE ATUAL</span>
+              <strong id="recorteCount">—</strong>
+              <p>Ajuste o recorte no Buscador para focar o briefing.</p>
+              <button class="primary-button" id="generateBriefing">Gerar briefing do recorte <span>→</span></button>
+              <small>Sem API ou chave · nada sai da máquina</small>
+            </div>
+            <div class="atalhos">
+              <span>ATALHOS DA EQUIPE</span>
+              <div>
+                <a class="shortcut" data-q="Lucas do Rio Verde">Briefing · Lucas do Rio Verde <span>→</span></a>
+                <a class="shortcut" data-q="fila">Recorte · Saúde e fila <span>→</span></a>
+                <a class="shortcut" data-q="educação">Recorte · Educação técnica <span>→</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="briefing-card" id="briefingCard"><div class="briefing-placeholder"><span>✦</span><h3>Seu briefing aparecerá aqui</h3><p>Use um atalho ou gere a preparação factual do recorte atual.</p></div></div>
+        </div>
       </section>
 
-      <section class="auditor-section" id="auditor">
-        <div class="section-title"><div><span>AUDITOR DE CAMPANHA</span><h2>Uma afirmação aguenta ser publicada?</h2></div><p>Triagem local de linguagem absoluta, números e necessidade de fonte.</p></div>
+      <section class="view" id="auditor">
+        <header class="view-head">
+          <div><h1>Auditor</h1><span class="view-sub">uma afirmação aguenta ser publicada? triagem de linguagem absoluta, números e fonte</span></div>
+        </header>
         <div class="auditor-grid">
           <div class="audit-input"><label for="claimInput">Cole uma frase, proposta ou trecho de discurso</label><textarea id="claimInput" rows="7" placeholder="Ex.: Criamos o maior programa de educação técnica do Brasil e atendemos 100 mil alunos."></textarea><button class="primary-button dark" id="auditButton">Auditar afirmação <span>→</span></button></div>
           <div class="audit-result" id="auditResult"><span>✓</span><h3>Pronto para revisar</h3><p>O auditor identifica riscos iniciais. A validação final deve sempre consultar a fonte original e a equipe responsável.</p></div>
         </div>
       </section>
 
-      <section class="trajectory-section" id="trajetoria">
-        <div class="section-title"><div><span>TRAJETÓRIA E EVIDÊNCIAS</span><h2>Histórico documentado do Allan</h2></div><p>Não é biografia promocional: cada eixo exige fonte e comprovação.</p></div>
+      <section class="view" id="trajetoria">
+        <header class="view-head">
+          <div><h1>Trajetória</h1><span class="view-sub">histórico documentado — cada eixo exige fonte e comprovação, não biografia promocional</span></div>
+        </header>
         <div class="trajectory-grid">
           <article><b>Educação</b><h3>Professor e educação profissional</h3><p>Produção técnica sobre educação profissional, desenvolvimento sustentável e Economia 4.0.</p><a href="https://revista.neead.secitec.mt.gov.br/index.php/rect/article/view/38" target="_blank" rel="noopener">Abrir fonte ↗</a></article>
           <article><b>Legislativo</b><h3>Educação física nas escolas</h3><p>Autoria registrada da Lei estadual nº 11.700/2022.</p><a href="https://diariooficial.al.mt.gov.br/publicacoes/13260/" target="_blank" rel="noopener">Abrir fonte ↗</a></article>
@@ -148,8 +162,10 @@
         </div>
       </section>
 
-      <section class="content-section" id="conteudo">
-        <div class="section-title"><div><span>CONTEÚDO</span><h2>Cadência com propósito</h2></div><p>Uma fila editorial baseada em dúvidas e evidências, não em improviso.</p></div>
+      <section class="view" id="conteudo">
+        <header class="view-head">
+          <div><h1>Conteúdo</h1><span class="view-sub">fila editorial baseada em dúvidas e evidências, não em improviso</span></div>
+        </header>
         <div class="content-board">
           <div><span>PAUTA IDENTIFICADA</span><article><b>Transparência</b><h3>Como acompanhar obras em escolas</h3><p>Falta confirmar cronograma por unidade.</p></article><article><b>Juventude</b><h3>Curso técnico leva a emprego?</h3><p>Buscar dados de inserção profissional.</p></article></div>
           <div><span>EM APURAÇÃO</span><article class="warn"><b>Saúde</b><h3>O que significa reduzir a fila?</h3><p>Separar atendimentos, cancelamentos e duplicidades.</p></article></div>
@@ -157,10 +173,8 @@
         </div>
       </section>
 
-      <section class="methodology" id="metodologia"><div><span>TRANSPARÊNCIA</span><h2>Como este MVP trabalha</h2></div><div class="method-grid"><p><b>01</b><strong>Fontes abertas</strong><span>Órgãos públicos, dados oficiais e imprensa identificada.</span></p><p><b>02</b><strong>Sem perfis individuais</strong><span>Temas e públicos são tratados de forma agregada.</span></p><p><b>03</b><strong>Evidência visível</strong><span>Fato, alegação e investigação não são misturados.</span></p></div></section>
     </main>
   </div>
-  <footer><span>Observatório + Copiloto</span><p><em>Do Conhecimento à Transformação</em> · MVP · fontes públicas · revisão humana obrigatória · 2026</p></footer>
   <script src="app.js" defer></script>
 </body>
 </html>

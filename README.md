@@ -1,6 +1,6 @@
-# Observatório + Copiloto
+# AKAssistente
 
-MVP estático para monitoramento agregado de informações públicas e preparação factual de um candidato. O sistema **não faz microdirecionamento, perfilamento individual ou otimização de persuasão**.
+Painel interno da equipe (antes "Observatório + Copiloto"): monitoramento agregado de informações públicas, agenda do deputado e preparação factual. MVP estático em HTML/CSS/JS puro, com shell de views (sidebar + uma view por seção, redesign "Semana da Equipe"/estilo 2c). O sistema **não faz microdirecionamento, perfilamento individual ou otimização de persuasão**.
 
 ## ⚠️ Acesso e privacidade
 
@@ -12,8 +12,8 @@ Este é um sistema **interno** da equipe, mas o repositório está público e o 
 
 ## O que já funciona
 
-- tela Hoje com prioridades, últimas notícias e espaço preparado para redes públicas;
-- Agenda do deputado com os 17 compromissos do planejamento (agosto a outubro), status automático pela data (realizado, hoje, em andamento, contagem regressiva), filtro por tipo e resumo de destinos;
+- tela inicial **Semana da Equipe**: grade de 7 dias derivada da agenda (hoje, compromissos, janelas de produção), pendências da equipe, itens "não usar em público", próximo compromisso e recentes na base;
+- Agenda completa com os 17 compromissos do planejamento (agosto a outubro), status automático pela data (realizado, hoje, em andamento, contagem regressiva), filtro por tipo, resumo e atalho de briefing por compromisso;
 - Observatório com temas, fontes, nível de evidência e linha do tempo;
 - Buscador de pautas por texto, período, tema, fonte e situação da evidência;
 - Copiloto local com perguntas difíceis, críticas, fatos, exemplos e alertas;
@@ -44,7 +44,7 @@ O site usa caminhos relativos e funciona tanto em domínio próprio quanto em `u
 
 ## Dados e arquitetura
 
-O front-end lê somente `data/mock-data.json` e `data/agenda.json`. O formato atual já separa campos úteis para ingestão futura: data, fonte, tipo de fonte, tema, sentimento agregado, volume, resumo, perguntas, fatos, crítica e exemplo.
+O front-end lê somente `data/mock-data.json`, `data/agenda.json` e `data/tarefas.json` (pendências da equipe, itens "não usar em público" e plano de produção da semana). O formato atual já separa campos úteis para ingestão futura: data, fonte, tipo de fonte, tema, sentimento agregado, volume, resumo, perguntas, fatos, crítica e exemplo.
 
 ### Agenda (`data/agenda.json`)
 
