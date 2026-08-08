@@ -1,0 +1,90 @@
+# Observatório + Copiloto
+
+MVP estático para monitoramento agregado de informações públicas e preparação factual de um candidato. O sistema **não faz microdirecionamento, perfilamento individual ou otimização de persuasão**.
+
+## O que já funciona
+
+- dashboard responsivo com volume, temas, sentimento agregado, fontes e linha do tempo;
+- filtros por período, tema e fonte;
+- lista de itens monitorados com fonte, data, tema e resumo;
+- Copiloto local que gera briefing com perguntas difíceis, dúvidas, críticas, fatos, exemplos e alertas de baixa evidência;
+- dados mockados em `data/mock-data.json`;
+- nenhuma chave, API externa ou segredo no front-end.
+
+## Rodar localmente
+
+Como o navegador carrega um arquivo JSON, use um servidor estático simples (abrir o HTML diretamente pode bloquear a leitura do JSON):
+
+```bash
+python -m http.server 8080
+```
+
+Depois acesse `http://localhost:8080`.
+
+## Publicar no GitHub Pages
+
+1. Crie um repositório no GitHub e envie estes arquivos para a branch `main`.
+2. No repositório, abra **Settings → Pages**.
+3. Em **Build and deployment**, escolha **GitHub Actions**.
+4. A action incluída em `.github/workflows/pages.yml` fará a publicação automaticamente.
+
+O site usa caminhos relativos e funciona tanto em domínio próprio quanto em `usuario.github.io/nome-do-repositorio/`.
+
+## Dados e arquitetura
+
+O front-end lê somente `data/mock-data.json`. O formato atual já separa campos úteis para ingestão futura: data, fonte, tipo de fonte, tema, sentimento agregado, volume, resumo, perguntas, fatos, crítica e exemplo.
+
+Fluxo preparado:
+
+```text
+RSS / APIs públicas / portais
+          ↓
+GitHub Actions (coleta, normalização e deduplicação)
+          ↓
+data/items.json versionado ou storage externo
+          ↓
+Dashboard estático
+          ↓
+Backend serverless + RAG (fase futura)
+```
+
+Para coleta automática, uma Action futura pode executar scripts agendados e atualizar o JSON. Respeite termos de uso, robots.txt, limites de requisição, direitos autorais e legislação eleitoral aplicável.
+
+## Adapter futuro de IA
+
+O demo gera o briefing com lógica determinística local. Em produção, substitua a função `generateBriefing()` por um adapter que chame **um backend serverless**, nunca o provedor de IA diretamente do navegador. O backend deve guardar a chave, buscar trechos na base, incluir fontes e devolver respostas com evidência.
+
+Interface sugerida:
+
+```js
+async function createBriefing({ filters, items }) {
+  // Demo: processamento local.
+  // Futuro: POST para /api/briefing, autenticado e com rate limit.
+}
+```
+
+## Plano de evolução
+
+### Fase 1 — MVP estático
+
+- validar navegação, filtros, categorias e formato do briefing;
+- substituir mocks por amostra pública revisada manualmente;
+- definir metodologia de classificação e política de correção.
+
+### Fase 2 — Ingestão automática
+
+- coletores agendados via GitHub Actions para RSS e APIs públicas;
+- normalização, deduplicação, logs e fila de revisão humana;
+- registro de URL, horário de coleta, licença e nível de confiança;
+- migrar para storage/backend se o volume superar o limite prático do repositório.
+
+### Fase 3 — Copiloto com RAG/backend
+
+- API serverless com segredos protegidos e controle de acesso;
+- busca semântica apenas na base autorizada, com citações;
+- respostas com nível de confiança, recusa quando faltar evidência e trilha de auditoria;
+- avaliação humana recorrente de factualidade, viés e segurança.
+
+## Limites do MVP
+
+Sentimento é apenas demonstrativo e agregado. Menções públicas não equivalem a pesquisa de opinião. Todo número relevante deve ser confirmado em fonte primária antes do uso público.

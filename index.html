@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Monitoramento público e preparação factual para campanhas responsáveis.">
+  <meta name="theme-color" content="#122c34">
+  <title>Observatório + Copiloto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Observatório + Copiloto — início">
+      <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+      <span>Observatório <b>+ Copiloto</b></span>
+    </a>
+    <div class="header-actions">
+      <span class="status"><i></i> Base local atualizada</span>
+      <button class="icon-button" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <div class="shell" id="inicio">
+    <aside class="sidebar" id="sidebar">
+      <nav aria-label="Navegação principal">
+        <a class="nav-link active" href="#visao"><span>⌂</span> Visão geral</a>
+        <a class="nav-link" href="#monitoramento"><span>◎</span> Monitoramento</a>
+        <a class="nav-link" href="#copiloto"><span>✦</span> Copiloto</a>
+      </nav>
+      <div class="scope-note">
+        <span>COMPROMISSO</span>
+        <p>Somente informações públicas e análise agregada.</p>
+        <a href="#metodologia">Ver metodologia →</a>
+      </div>
+    </aside>
+
+    <main>
+      <section class="hero" id="visao">
+        <div>
+          <p class="eyebrow">PAINEL DE INTELIGÊNCIA PÚBLICA</p>
+          <h1>O que está acontecendo<br><em>no debate público?</em></h1>
+          <p class="hero-copy">Acompanhe temas, dúvidas e críticas em fontes abertas. Prepare-se com fatos — sem perfilamento individual.</p>
+        </div>
+        <div class="date-card">
+          <span>JANELA ANALISADA</span>
+          <strong id="dateLabel">02–08 ago 2026</strong>
+          <small>Dados demonstrativos</small>
+        </div>
+      </section>
+
+      <section class="filter-bar" aria-label="Filtros">
+        <label>Período
+          <select id="periodFilter">
+            <option value="7">Últimos 7 dias</option>
+            <option value="3">Últimos 3 dias</option>
+            <option value="1">Hoje</option>
+          </select>
+        </label>
+        <label>Tema
+          <select id="topicFilter"><option value="all">Todos os temas</option></select>
+        </label>
+        <label>Fonte
+          <select id="sourceFilter"><option value="all">Todas as fontes</option></select>
+        </label>
+        <button class="reset-button" id="resetFilters">Limpar filtros</button>
+      </section>
+
+      <section class="metrics" aria-label="Indicadores principais">
+        <article class="metric-card featured">
+          <span>MENÇÕES MONITORADAS</span>
+          <div><strong id="mentionCount">—</strong><small id="mentionTrend">no período</small></div>
+          <div class="mini-bars" id="miniBars" aria-hidden="true"></div>
+        </article>
+        <article class="metric-card">
+          <span>TEMAS EM DESTAQUE</span>
+          <div><strong id="topicCount">—</strong><small>categorias</small></div>
+          <p id="topTopic">—</p>
+        </article>
+        <article class="metric-card sentiment-card">
+          <span>SENTIMENTO AGREGADO</span>
+          <div class="sentiment-ring" id="sentimentRing"><strong id="neutralPct">—</strong></div>
+          <p>Predominantemente neutro</p>
+        </article>
+        <article class="metric-card">
+          <span>FONTES PÚBLICAS</span>
+          <div><strong id="sourceCount">—</strong><small>tipos de fonte</small></div>
+          <p id="sourceSummary">—</p>
+        </article>
+      </section>
+
+      <div class="dashboard-grid">
+        <section class="panel chart-panel">
+          <div class="panel-heading">
+            <div><span>EVOLUÇÃO</span><h2>Volume na linha do tempo</h2></div>
+            <div class="legend"><i></i> Menções públicas</div>
+          </div>
+          <div class="chart" id="timelineChart" role="img" aria-label="Gráfico de volume diário de menções"></div>
+        </section>
+        <section class="panel topics-panel">
+          <div class="panel-heading"><div><span>AGENDA</span><h2>Temas mais citados</h2></div></div>
+          <div id="topicsChart" class="topics-chart"></div>
+        </section>
+      </div>
+
+      <section class="panel monitor-panel" id="monitoramento">
+        <div class="panel-heading">
+          <div><span>MONITORAMENTO</span><h2>Itens públicos recentes</h2></div>
+          <span class="result-count" id="resultCount">— itens</span>
+        </div>
+        <div class="items-list" id="itemsList" aria-live="polite"></div>
+      </section>
+
+      <section class="copilot" id="copiloto">
+        <div class="copilot-intro">
+          <span class="copilot-icon">✦</span>
+          <p class="eyebrow">COPILOTO DO CANDIDATO</p>
+          <h2>Chegue preparado.<br><em>Responda com fatos.</em></h2>
+          <p>O briefing é montado a partir dos itens públicos filtrados. Nenhum dado pessoal ou perfil individual é utilizado.</p>
+          <button class="primary-button" id="generateBriefing">Gerar briefing agora <span>→</span></button>
+          <small>Funciona localmente · sem API ou chave</small>
+        </div>
+        <div class="briefing-card" id="briefingCard">
+          <div class="briefing-placeholder">
+            <span>✦</span>
+            <h3>Seu briefing aparecerá aqui</h3>
+            <p>Use os filtros para definir o recorte e gere uma preparação factual em segundos.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="methodology" id="metodologia">
+        <div><span>TRANSPARÊNCIA</span><h2>Como este MVP trabalha</h2></div>
+        <div class="method-grid">
+          <p><b>01</b><strong>Fontes abertas</strong><span>Notícias, portais e manifestações públicas.</span></p>
+          <p><b>02</b><strong>Análise agregada</strong><span>Sem identificação ou perfilamento individual.</span></p>
+          <p><b>03</b><strong>Evidência visível</strong><span>Alertas quando os dados são insuficientes.</span></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer><span>Observatório + Copiloto</span><p>MVP demonstrativo · dados simulados · 2026</p></footer>
+  <script src="app.js" defer></script>
+</body>
+</html>
