@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="enhancements.css">
   <link rel="stylesheet" href="latest.css">
+  <link rel="stylesheet" href="agenda.css">
 </head>
 <body>
   <header class="topbar">
@@ -29,6 +30,7 @@
     <aside class="sidebar" id="sidebar">
       <nav aria-label="Navegação principal">
         <a class="nav-link active" href="#hoje"><span>⌂</span> Hoje</a>
+        <a class="nav-link" href="#agenda"><span>◷</span> Agenda</a>
         <a class="nav-link" href="#observatorio"><span>◎</span> Observatório</a>
         <a class="nav-link" href="#buscador"><span>⌕</span> Buscador de pautas</a>
         <a class="nav-link" href="#copiloto"><span>✦</span> Copiloto</a>
@@ -76,6 +78,24 @@
           </div>
           <div class="channel-list"><span>Instagram</span><span>Facebook</span><span>YouTube</span></div>
         </div>
+      </section>
+
+      <section class="agenda-section" id="agenda">
+        <div class="section-title"><div><span>AGENDA DO DEPUTADO</span><h2>Compromissos planejados</h2></div><p>Planejamento interno de viagens e reuniões de agosto a outubro. O status é calculado automaticamente pela data do acesso. Uso restrito à equipe.</p></div>
+        <div class="agenda-grid">
+          <article class="agenda-next" id="agendaNext"></article>
+          <div class="agenda-stats">
+            <article><span>COMPROMISSOS</span><strong id="agTotal">—</strong><small>no planejamento</small></article>
+            <article><span>PRÓXIMOS 7 DIAS</span><strong id="agWeek">—</strong><small>compromissos</small></article>
+            <article><span>DESTINOS</span><strong id="agPlaces">—</strong><small>municípios e regiões</small></article>
+            <article><span>REALIZADOS</span><strong id="agDone">—</strong><small>até hoje</small></article>
+          </div>
+        </div>
+        <div class="agenda-toolbar">
+          <label>Tipo<select id="agendaTypeFilter"><option value="all">Todos os tipos</option></select></label>
+          <label class="agenda-hide"><input type="checkbox" id="agendaHideDone"> Ocultar realizados</label>
+        </div>
+        <div class="agenda-list" id="agendaList" aria-live="polite"></div>
       </section>
 
       <section id="observatorio" class="section-wrap">

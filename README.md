@@ -2,9 +2,18 @@
 
 MVP estático para monitoramento agregado de informações públicas e preparação factual de um candidato. O sistema **não faz microdirecionamento, perfilamento individual ou otimização de persuasão**.
 
+## ⚠️ Acesso e privacidade
+
+Este é um sistema **interno** da equipe, mas o repositório está público e o GitHub Pages publica o site aberto na internet. A seção **Agenda** contém deslocamentos futuros do deputado — informação sensível de segurança pessoal que não deve ficar exposta publicamente. Antes de fazer push da agenda:
+
+1. torne o repositório **privado** (Settings → General → Danger Zone → Change visibility);
+2. lembre que GitHub Pages de repositório privado continua **público** no plano gratuito — para acesso restrito da equipe, use uma hospedagem com autenticação (ex.: Cloudflare Access/Zero Trust, Vercel com proteção por senha) ou rode localmente;
+3. alternativa provisória: manter `data/agenda.json` fora do repositório remoto e distribuí-lo apenas internamente.
+
 ## O que já funciona
 
 - tela Hoje com prioridades, últimas notícias e espaço preparado para redes públicas;
+- Agenda do deputado com os 17 compromissos do planejamento (agosto a outubro), status automático pela data (realizado, hoje, em andamento, contagem regressiva), filtro por tipo e resumo de destinos;
 - Observatório com temas, fontes, nível de evidência e linha do tempo;
 - Buscador de pautas por texto, período, tema, fonte e situação da evidência;
 - Copiloto local com perguntas difíceis, críticas, fatos, exemplos e alertas;
@@ -35,7 +44,11 @@ O site usa caminhos relativos e funciona tanto em domínio próprio quanto em `u
 
 ## Dados e arquitetura
 
-O front-end lê somente `data/mock-data.json`. O formato atual já separa campos úteis para ingestão futura: data, fonte, tipo de fonte, tema, sentimento agregado, volume, resumo, perguntas, fatos, crítica e exemplo.
+O front-end lê somente `data/mock-data.json` e `data/agenda.json`. O formato atual já separa campos úteis para ingestão futura: data, fonte, tipo de fonte, tema, sentimento agregado, volume, resumo, perguntas, fatos, crítica e exemplo.
+
+### Agenda (`data/agenda.json`)
+
+Cada compromisso tem `id`, `ref` (número na tabela original do planejamento), `start`/`end` (ISO `AAAA-MM-DD`, iguais para evento de um dia), `time` (`"19h"`, `"19h30"` ou `null`), `type` (`reuniao`, `viagem`, `evento`, `encerramento`), `title` e `locations` (lista de municípios/regiões). Para atualizar a agenda, edite o JSON, rode `npm test` e faça commit — o status (realizado/hoje/em X dias) é calculado no navegador, sem necessidade de mexer no código.
 
 Fluxo preparado:
 

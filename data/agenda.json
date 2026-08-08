@@ -1,0 +1,24 @@
+{
+  "updatedAt": "2026-08-08",
+  "source": "Agenda de viagens/reuniões — agosto e setembro (planejamento interno da equipe)",
+  "note": "O campo ref corresponde ao número do compromisso na tabela original do planejamento. Eventos estão em ordem cronológica.",
+  "events": [
+    {"id":1,"ref":1,"start":"2026-08-13","end":"2026-08-13","time":"19h","type":"reuniao","title":"Reunião em Lucas do Rio Verde","locations":["Lucas do Rio Verde"]},
+    {"id":2,"ref":3,"start":"2026-08-19","end":"2026-08-19","time":"19h","type":"evento","title":"Aniversário do Campus UFMT Araguaia","locations":["Campus UFMT Araguaia"]},
+    {"id":3,"ref":4,"start":"2026-08-20","end":"2026-08-25","time":null,"type":"viagem","title":"Viagem para Alta Floresta e Paranaíta","locations":["Alta Floresta","Paranaíta"]},
+    {"id":4,"ref":2,"start":"2026-08-28","end":"2026-08-28","time":"19h30","type":"reuniao","title":"Reunião em Nova Mutum","locations":["Nova Mutum"]},
+    {"id":5,"ref":5,"start":"2026-08-30","end":"2026-08-30","time":"10h","type":"viagem","title":"Viagem para Primavera do Leste e São Pedro da Cipa","locations":["Primavera do Leste","São Pedro da Cipa"]},
+    {"id":6,"ref":6,"start":"2026-09-03","end":"2026-09-03","time":"19h","type":"reuniao","title":"Reunião em Confresa","locations":["Confresa"]},
+    {"id":7,"ref":7,"start":"2026-09-04","end":"2026-09-04","time":"12h","type":"evento","title":"Almoço em Nova Ubiratã","locations":["Nova Ubiratã"]},
+    {"id":8,"ref":8,"start":"2026-09-08","end":"2026-09-08","time":"8h","type":"viagem","title":"Viagem para Juína e Brasnorte","locations":["Juína","Brasnorte"]},
+    {"id":9,"ref":9,"start":"2026-09-09","end":"2026-09-11","time":null,"type":"viagem","title":"Viagem para Região do Arinos","locations":["Região do Arinos"]},
+    {"id":10,"ref":10,"start":"2026-09-12","end":"2026-09-12","time":"19h","type":"reuniao","title":"Reunião em Pontes e Lacerda","locations":["Pontes e Lacerda"]},
+    {"id":11,"ref":11,"start":"2026-09-15","end":"2026-09-15","time":"19h30","type":"reuniao","title":"Reunião em Guarantã do Norte","locations":["Guarantã do Norte"]},
+    {"id":12,"ref":12,"start":"2026-09-16","end":"2026-09-16","time":"19h","type":"reuniao","title":"Reunião em Campo Verde","locations":["Campo Verde"]},
+    {"id":13,"ref":13,"start":"2026-09-17","end":"2026-09-18","time":null,"type":"reuniao","title":"Reuniões em Rondonópolis e Jaciara","locations":["Rondonópolis","Jaciara"]},
+    {"id":14,"ref":14,"start":"2026-09-21","end":"2026-09-25","time":null,"type":"viagem","title":"Viagem para Região Sul","locations":["Região Sul"]},
+    {"id":15,"ref":15,"start":"2026-09-27","end":"2026-09-29","time":null,"type":"reuniao","title":"Reuniões e visitas em Cuiabá, Várzea Grande e Baixada Cuiabana","locations":["Cuiabá","Várzea Grande","Baixada Cuiabana"]},
+    {"id":16,"ref":16,"start":"2026-09-30","end":"2026-09-30","time":"19h30","type":"encerramento","title":"Encerramento Várzea Grande","locations":["Várzea Grande"]},
+    {"id":17,"ref":17,"start":"2026-10-01","end":"2026-10-01","time":"19h","type":"encerramento","title":"Encerramento Cuiabá","locations":["Cuiabá"]}
+  ]
+}
