@@ -4,11 +4,14 @@ MVP estático para monitoramento agregado de informações públicas e preparaç
 
 ## O que já funciona
 
-- dashboard responsivo com volume, temas, sentimento agregado, fontes e linha do tempo;
-- filtros por período, tema e fonte;
-- lista de itens monitorados com fonte, data, tema e resumo;
-- Copiloto local que gera briefing com perguntas difíceis, dúvidas, críticas, fatos, exemplos e alertas de baixa evidência;
-- dados mockados em `data/mock-data.json`;
+- tela Hoje com prioridades, últimas notícias e espaço preparado para redes públicas;
+- Observatório com temas, fontes, nível de evidência e linha do tempo;
+- Buscador de pautas por texto, período, tema, fonte e situação da evidência;
+- Copiloto local com perguntas difíceis, críticas, fatos, exemplos e alertas;
+- Auditor local para triagem inicial de afirmações, números e promessas;
+- trajetória documentada do Allan e quadro editorial;
+- 12 registros públicos reais, com links e classificação metodológica;
+- WhatsApp fora do escopo desta versão;
 - nenhuma chave, API externa ou segredo no front-end.
 
 ## Rodar localmente
